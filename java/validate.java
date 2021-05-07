@@ -34,7 +34,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
                                   // SignatureVerificationException
             try {
                 JWTVerifier verifier = JWT.require(algorithm).withAudience("api://d92655f6-2a63-458b-9fe2-187e176397b4")
-                        .build(); // Reusable verifier instance
+                        .withClaim("roles", "DaemonAppRole").build(); // Reusable verifier instance
                 DecodedJWT jwt2 = verifier.verify(token);
             } catch (TokenExpiredException e) {
                 System.out.println("Token is expired");
